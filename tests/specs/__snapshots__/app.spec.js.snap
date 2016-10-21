@@ -1,0 +1,15 @@
+exports[`App should process yaml file with processor 1`] = `
+Object {
+  "do": Object {
+    "some": Object {
+      "string": "aaa",
+    },
+  },
+}
+`;
+
+exports[`App should process yaml file with proper processor with prefix 1`] = `
+Array [
+  "$tx-do-some-string: aaa;",
+]
+`;
