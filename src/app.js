@@ -1,14 +1,25 @@
-const path = require('path');
-const yaml = require('js-yaml');
+/* eslint no-console: ["error", { allow: ["warn", "error"] }] */
+import yaml from 'js-yaml';
+import js from './processors/js';
+import scss from './processors/scss';
 
-module.exports = function app(themeYaml, format, opt = {}) {
+let processors = {
+  js,
+  scss
+};
+
+module.exports = function app(themeYaml, format, config = {}) {
+  if (config.processors) {
+    processors = Object.assign({}, config.processors, processors);
+  }
+
   try {
-    const processor = require(path.join(__dirname, 'processors', format));
+    const processor = processors[format] || js;
     const jsonTheme = yaml.safeLoad(themeYaml);
-    return processor.compile(jsonTheme, opt.prefix ? opt.prefix : '');
+    return processor.compile(jsonTheme, config.prefix ? config.prefix : '');
   } catch (error) {
-    console.log('Failed to process theme:');
-    console.log(error);
+    console.warn('Failed to process theme:');
+    console.warn(error);
   }
 
   return null;

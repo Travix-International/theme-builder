@@ -12,7 +12,7 @@ describe('App', () => {
     };
 
     yaml.safeLoad = () => doc;
-    const result = app('some.yaml', 'scss', {prefix: 'tx'});
+    const result = app('some.yaml', 'scss', { prefix: 'tx' });
     expect(result).toMatchSnapshot();
   });
 
@@ -31,7 +31,6 @@ describe('App', () => {
   });
 
   it('should return null in case of missing processor', () => {
-
     yaml.safeLoad = () => {};
     const result = app('some.yaml', 'no-processor');
     expect(result).toBeNull();
