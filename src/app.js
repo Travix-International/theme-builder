@@ -5,7 +5,8 @@ import scss from './processors/scss';
 
 let processors = {
   js,
-  scss
+  scss,
+  missing: { compile: () => null }
 };
 
 module.exports = function app(themeYaml, format, config = {}) {
@@ -14,7 +15,7 @@ module.exports = function app(themeYaml, format, config = {}) {
   }
 
   try {
-    const processor = processors[format] || js;
+    const processor = processors[format] || processors.missing;
     const jsonTheme = yaml.safeLoad(themeYaml);
     return processor.compile(jsonTheme, config.prefix ? config.prefix : '');
   } catch (error) {

@@ -1,3 +1,9 @@
+exports[`App should extend processors list with list from config and use custom processors 1`] = `
+Array [
+  "do",
+]
+`;
+
 exports[`App should process yaml file with processor 1`] = `
 Object {
   "do": Object {
