@@ -1,9 +1,9 @@
 {
   "extends": "travix",
   "globals": {
-      "beforeEach": true,
-      "describe": true,
-      "expect": true,
-      "it": true
-    }
+    "beforeEach": true,
+    "describe": true,
+    "expect": true,
+    "it": true
+  }
 }

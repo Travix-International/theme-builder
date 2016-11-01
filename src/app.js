@@ -6,7 +6,9 @@ import scss from './processors/scss';
 let processors = {
   js,
   scss,
-  missing: { compile: () => null }
+  missing: {
+    compile: () => null
+  }
 };
 
 module.exports = function app(themeYaml, format, config = {}) {
