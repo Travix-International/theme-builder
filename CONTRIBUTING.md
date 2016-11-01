@@ -16,13 +16,6 @@ $ npm run transpile
 $ npm version patch(|minor|major)
 $ npm publish
 $ git push --follow-tags
-$ npm run docs:publish
-```
-
-Or via Makefile:
-
-```
-$ make release VERSION=patch
 ```
 
 ## Changelogs

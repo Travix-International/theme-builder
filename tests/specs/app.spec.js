@@ -3,7 +3,7 @@ const yaml = require('js-yaml');
 let doc;
 
 describe('App', () => {
-  beforeEach(()=> {
+  beforeEach(() => {
     doc = {
       do: {
         some: {
@@ -25,8 +25,9 @@ describe('App', () => {
   });
 
   it('should return null in case of missing processor', () => {
-    const result = app('some.yaml', 'no-processor');
-    expect(result).toBeNull();
+    expect(() => {
+      app('some.yaml', 'no-processor');
+    }).toThrowError('Missing processors for "no-processor" format');
   });
 
   it('should extend processors list with list from config and use custom processors', () => {

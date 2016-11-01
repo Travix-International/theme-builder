@@ -5,10 +5,7 @@ import scss from './processors/scss';
 
 let processors = {
   js,
-  scss,
-  missing: {
-    compile: () => null
-  }
+  scss
 };
 
 module.exports = function app(themeYaml, format, config = {}) {
@@ -16,12 +13,16 @@ module.exports = function app(themeYaml, format, config = {}) {
     processors = Object.assign({}, config.processors, processors);
   }
 
+  if (!processors[format]) {
+    throw new Error(`Missing processors for "${format}" format`);
+  }
+
   try {
-    const processor = processors[format] || processors.missing;
+    const processor = processors[format];
     const jsonTheme = yaml.safeLoad(themeYaml);
     return processor.compile(jsonTheme, config.prefix ? config.prefix : '');
   } catch (error) {
-    console.warn('Failed to process theme:');
+    console.warn(`Failed to process theme with ${format} format. Reason:`);
     console.warn(error);
   }
 

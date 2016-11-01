@@ -5,6 +5,7 @@ Build theme's variables form YAML to consumable format (like JS or SCSS)
 `npm install theme-builder`
 
 ## How to use
+
 ```js
 const themeBuilder = require('theme-builder');
 const themeYaml = fs.readFileSync(pathToYamlFile);
@@ -17,6 +18,7 @@ const themeScss = themeBuilder(themeYaml, 'scss');
 
 ## How it works (example)
 You have `index.yaml` and you want to convert it to SCSS:
+
 ```yaml
 generic:
   color:
@@ -25,12 +27,16 @@ button:
   color:
     bg: *accent
 ```
+
 So, you can call `themeBuilder` function like this:
+
 ```js
 const themeYaml = fs.readFileSync('index.yaml');
 themeBuilder(themeYaml, 'scss', {prefix: 'ui'});
 ```
+
 and as result you will get string with 2 variables:
+
 ```scss
 $ui-generic-color-accent: #1fcff6;
 $ui-button-color-bg: #1fcff6;

@@ -21,7 +21,10 @@
     "yaml",
     "themes-builder"
   ],
-  "author": "Travix International B.V",
+  "author": {
+    "name": "Travix International",
+    "url": "http://travix.com"
+  },
   "license": "MIT",
   "homepage": "https://github.com/Travix-International/theme-builder#readme",
   "jest": {
@@ -49,7 +52,7 @@
     "babel-preset-es2015": "6.16.0",
     "babel-register": "6.11.6",
     "eslint": "3.2.2",
-    "eslint-config-travix": "1.1.0",
+    "eslint-config-travix": "^1.3.0",
     "eslint-plugin-babel": "3.3.0",
     "eslint-plugin-import": "1.12.0",
     "eslint-plugin-react": "5.2.2",
