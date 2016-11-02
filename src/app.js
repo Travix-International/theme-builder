@@ -3,14 +3,15 @@ import yaml from 'js-yaml';
 import js from './processors/js';
 import scss from './processors/scss';
 
-let processors = {
+const defaultProcessors = {
   js,
   scss
 };
 
 module.exports = function app(themeYaml, format, config = {}) {
+  let processors = defaultProcessors;
   if (config.processors) {
-    processors = Object.assign({}, config.processors, processors);
+    processors = Object.assign({}, config.processors, defaultProcessors);
   }
 
   if (!processors[format]) {
