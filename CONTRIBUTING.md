@@ -20,4 +20,4 @@ $ git push --follow-tags
 
 ## Changelogs
 
-You should provide proper change log. Later we will automate to assemble form commit messages
+You should provide proper change log. Later we will automate to assemble from commit messages
