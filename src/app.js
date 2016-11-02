@@ -1,7 +1,7 @@
 /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
-import yaml from 'js-yaml';
-import js from './processors/js';
-import scss from './processors/scss';
+const yaml = require('js-yaml');
+const js = require('./processors/js');
+const scss = require('./processors/scss');
 
 const defaultProcessors = {
   js,

@@ -1,6 +1,3 @@
-var path = require('path');
-var webpack = require('webpack');
-
 module.exports = {
   entry: './index.js',
   output: { path: __dirname, filename: 'bundle.js' },
@@ -14,6 +11,6 @@ module.exports = {
     ]
   },
   resolve: {
-   extensions: ['', '.js']
- }
+    extensions: ['', '.js']
+  }
 };
