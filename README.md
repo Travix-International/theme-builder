@@ -1,4 +1,6 @@
 # Theme builder
+[![Build Status](https://img.shields.io/travis/Travix-International/theme-builder/master.svg)](http://travis-ci.org/Travix-International/theme-builder) [![npm](https://img.shields.io/npm/v/theme-builder.svg)](https://www.npmjs.com/package/theme-builder)
+
 Build theme's variables form YAML to consumable format (like JS or SCSS)
 
 ## Installing
