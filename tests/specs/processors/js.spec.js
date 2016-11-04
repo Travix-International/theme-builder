@@ -1,4 +1,5 @@
 const jsProcessor = require('../../../src/processors/js.js');
+
 describe('JS process', () => {
   it('should process object', () => {
     const doc = {

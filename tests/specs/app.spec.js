@@ -1,6 +1,7 @@
 const app = require('../../src/app.js');
 const yaml = require('js-yaml');
 const js = require('../../src/processors/js');
+
 let doc;
 
 describe('App', () => {

@@ -1,4 +1,5 @@
 const scssProcessor = require('../../../src/processors/scss.js');
+
 describe('SCSS processor', () => {
   let doc;
 
