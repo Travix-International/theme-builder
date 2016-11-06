@@ -57,7 +57,7 @@
     "eslint-config-travix": "^2.2.0",
     "eslint-plugin-babel": "3.3.0",
     "eslint-plugin-import": "2.2.0",
-    "eslint-plugin-react": "6.5.0",
+    "eslint-plugin-react": "6.6.0",
     "jest": "16.0.2",
     "webpack": "1.13.3"
   },
