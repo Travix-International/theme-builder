@@ -1,12 +1,12 @@
 {
   "name": "theme-builder",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "description": "README",
   "main": "lib/app.js",
   "scripts": {
     "build": "babel --copy-files ./src --out-dir lib",
     "coverage:coveralls": "cat ./coverage/lcov.info | $(npm bin)/../coveralls/bin/coveralls.js",
-    "install": "npm run build",
+    "prepublish": "npm run build",
     "lint": "eslint --color '{src,tests}/**/*.js'",
     "test": "jest",
     "test:update": "jest -u",
