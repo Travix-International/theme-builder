@@ -58,7 +58,7 @@
     "eslint-plugin-babel": "3.3.0",
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-react": "6.6.0",
-    "jest": "16.0.2",
+    "jest": "17.0.0",
     "webpack": "1.13.3"
   },
   "dependencies": {
