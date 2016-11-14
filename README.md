@@ -1,5 +1,5 @@
 # Theme builder
-[![npm](https://img.shields.io/npm/v/theme-builder.svg)](https://www.npmjs.com/package/theme-builder) [![Build Status](https://img.shields.io/travis/Travix-International/theme-builder/master.svg)](http://travis-ci.org/Travix-International/theme-builder) [![Coverage](https://img.shields.io/coveralls/Travix-International/theme-builder.svg)](https://coveralls.io/github/Travix-International/theme-builder)
+[![npm](https://img.shields.io/npm/v/theme-builder.svg)](https://www.npmjs.com/package/theme-builder) [![Build Status](https://img.shields.io/travis/Travix-International/theme-builder/master.svg)](http://travis-ci.org/Travix-International/theme-builder) [![Coverage](https://img.shields.io/coveralls/Travix-International/theme-builder.svg)](https://coveralls.io/github/Travix-International/theme-builder) [![NSP Status](https://nodesecurity.io/orgs/travix-international-bv/projects/bb6645f3-32d3-4e4f-84b0-2b558b3e109b/badge)](https://nodesecurity.io/orgs/travix-international-bv/projects/bb6645f3-32d3-4e4f-84b0-2b558b3e109b)
 
 Build theme's variables form YAML to consumable format (like JS or SCSS)
 
