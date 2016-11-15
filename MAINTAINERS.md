@@ -1,4 +1,4 @@
-# Contributing
+# Maintainers
 
 ## Pull Requests
 
