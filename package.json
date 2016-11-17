@@ -54,7 +54,7 @@
     "coveralls": "^2.11.12",
     "eslint": "3.10.2",
     "eslint-config-travix": "^2.2.0",
-    "eslint-plugin-babel": "3.3.0",
+    "eslint-plugin-babel": "4.0.0",
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-react": "6.7.0",
     "jest": "17.0.3",
