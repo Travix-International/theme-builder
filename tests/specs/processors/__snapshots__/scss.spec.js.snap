@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`SCSS processor should compile doc to SCSS format 1`] = `
 Array [
   "$do-some-string: aaa;",

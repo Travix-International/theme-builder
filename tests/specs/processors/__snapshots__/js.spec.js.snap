@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`JS process should process object 1`] = `
 Object {
   "do": Object {
