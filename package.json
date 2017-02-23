@@ -28,8 +28,13 @@
   "license": "MIT",
   "homepage": "https://github.com/Travix-International/theme-builder#readme",
   "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
     "testRegex": "(/tests/.*|\\.(test|spec))\\.(js)$",
-    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "transform": {
+      ".*": "<rootDir>/node_modules/babel-jest"
+    },
     "collectCoverage": true,
     "testEnvironment": "node"
   },
