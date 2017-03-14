@@ -45,3 +45,33 @@ $ui-button-color-bg: #1fcff6;
 ```
 
 You can save the output to `.scss` file and use while writing your styles.
+
+## API (Types)
+
+```jsx
+function themeBuilder(
+  // Path to main theme YAML file
+  themeYaml: string,
+
+  // Output format
+  format: string,
+
+  // Optional config
+  config?: Config
+): any
+
+type Config = {
+  // Processors for additional formats
+  processors?: {[name: string]: Processor},
+
+  // Default theme YAML filepath, will be used as base to extend main YAML
+  defaultThemeYaml?: string,
+
+  // Output unit prefixes, eg. SCSS variables names prefixes
+  prefix?: string,
+}
+
+type Processor = {
+  compile(obj: object): any
+}
+```

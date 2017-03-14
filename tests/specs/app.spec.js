@@ -26,6 +26,23 @@ describe('App', () => {
     expect(result).toMatchSnapshot();
   });
 
+  it('should process yaml file with processor and extend with default yaml', () => {
+    yaml.safeLoad = (name) => {
+      if (name === '_default.yaml') {
+        return {
+          default: 'test',
+          do: {
+            deep: 'workAsWell'
+          }
+        };
+      }
+
+      return doc;
+    };
+    const result = app('some.yaml', 'js', { defaultThemeYaml: '_default.yaml' });
+    expect(result).toMatchSnapshot();
+  });
+
   it('should throw an error in case of missing processor', () => {
     expect(() => {
       app('some.yaml', 'no-processor');

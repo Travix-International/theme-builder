@@ -16,6 +16,18 @@ Object {
 }
 `;
 
+exports[`App should process yaml file with processor and extend with default yaml 1`] = `
+Object {
+  "default": "test",
+  "do": Object {
+    "deep": "workAsWell",
+    "some": Object {
+      "string": "aaa",
+    },
+  },
+}
+`;
+
 exports[`App should process yaml file with proper processor with prefix 1`] = `
 Array [
   "$tx-do-some-string: aaa;",
