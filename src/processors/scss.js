@@ -15,7 +15,7 @@ const ScssProcessor = {
       result = result.concat(children);
     });
 
-    return result;
+    return result.join('\n');
   }
 };
 
