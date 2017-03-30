@@ -2,7 +2,7 @@
   "name": "theme-builder",
   "version": "0.3.1",
   "description": "README",
-  "main": "src/app.js",
+  "main": "lib/app.js",
   "scripts": {
     "build": "babel --copy-files ./src --out-dir lib",
     "coverage:coveralls": "cat ./coverage/lcov.info | $(npm bin)/../coveralls/bin/coveralls.js",

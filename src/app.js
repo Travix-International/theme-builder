@@ -13,10 +13,6 @@ const defaultConfig = {
   format: 'scss'
 };
 
-function readFiles(paths) {
-  return Promise.resolve(paths.map(themePath => fs.readFileSync(themePath, 'utf-8')).filter(Boolean));
-}
-
 module.exports = function themeBuilder(config) {
   const builderConfig = Object.assign({}, defaultConfig, config);
   const { processors, prefix, format } = builderConfig;
@@ -29,7 +25,7 @@ module.exports = function themeBuilder(config) {
 
   return {
     merge(yamlFiles) {
-      return readFiles(yamlFiles)
+      return yamlUtils.readFiles(yamlFiles)
         .then(yamlUtils.concatYamlData)
         .then(yamlUtils.parseYaml)
         .then(yamlUtils.buildYamlJson)
