@@ -10,8 +10,14 @@ Build theme's variables form YAML to consumable format (like JS or SCSS)
 
 ```js
 const themeBuilder = require('theme-builder');
-const themeYaml = fs.readFileSync(pathToYamlFile);
-const themeScss = themeBuilder(themeYaml, 'scss');
+
+const builder = themeBuilder({
+  format: 'scss',
+  prefix: 'tx',
+});
+
+builder.build(pathToYamlFile)
+  .then(themeScss => console.log(themeScss));
 ```
 
 ## Current formats
@@ -33,8 +39,9 @@ button:
 So, you can call `themeBuilder` function like this:
 
 ```js
-const themeYaml = fs.readFileSync('index.yaml');
-themeBuilder(themeYaml, 'scss', {prefix: 'ui'});
+themeBuilder({ format: 'scss' })
+  .build('index.yaml')
+  .then(themeScss => console.log(themeScss));
 ```
 
 and as result you will get string with 2 variables:
@@ -45,6 +52,40 @@ $ui-button-color-bg: #1fcff6;
 ```
 
 You can save the output to `.scss` file and use while writing your styles.
+
+## How to override default theme
+You can provide array of yaml files, and themeBuilder will merge it one by one:
+
+#### How it works (example)
+You have `default.yaml` and `custom.yaml`, you want to merge it and convert it to SCSS:
+
+`./default.yaml`
+```yaml
+generic:
+  color:
+    accent: &accent '#1fcff6'
+button:
+  color:
+    bg: *accent
+```
+
+`./custom.yaml`
+```yaml
+generic:
+  color:
+    accent: &accent '#283A8E'
+```
+
+```js
+themeBuilder()
+  .build(['default.yaml', 'custom.yaml'])
+  .then(themeScss => console.log(themeScss));
+```
+and as result you will get string with 2 variables:
+```scss
+$ui-generic-color-accent: #283A8E;
+$ui-button-color-bg: #283A8E;
+```
 
 ## API (Types)
 
