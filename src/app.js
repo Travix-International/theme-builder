@@ -28,15 +28,40 @@ module.exports = function themeBuilder(config) {
   }
 
   return {
-    merge(files) {
-      return readFiles(files)
+    merge(yamlFiles) {
+      return readFiles(yamlFiles)
         .then(yamlUtils.concatYamlData)
         .then(yamlUtils.parseYaml)
         .then(yamlUtils.buildYamlJson)
         .then(yamlUtils.compileJsonToYaml);
     },
-    build(themeYaml) {
-      return processor.compile(jsYaml.safeLoad(themeYaml), prefix);
+    build(yamlFiles) {
+      let promise;
+      if (typeof yamlFiles === 'string') {
+        promise = this.merge([yamlFiles]);
+      } else {
+        promise = this.merge(yamlFiles);
+      }
+
+      return promise
+        .then(themeYaml => processor.compile(jsYaml.safeLoad(themeYaml), prefix));
+    },
+    watch(files, callback) {
+      if (typeof callback !== 'function') {
+        throw new Error('callback is required!');
+      }
+
+      return files.map((yamlFile) => {
+        return fs.watchFile(yamlFile, (curr, prev) => {
+          console.log(`[theme-builder] Detected changes on ${yamlFile}`); // eslint-disable-line
+          console.log(`[theme-builder] rebuilding start`); // eslint-disable-line
+          this.build(files)
+            .then((content) => {
+              console.log(`[theme-builder] rebuilding end`); // eslint-disable-line
+              callback(content, curr, prev);
+            });
+        });
+      });
     }
   };
 };
