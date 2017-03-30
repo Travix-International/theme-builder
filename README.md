@@ -87,6 +87,12 @@ $ui-generic-color-accent: #283A8E;
 $ui-button-color-bg: #283A8E;
 ```
 
+#### How to watch changes
+```js
+themeBuilder()
+  .watch(['default.yaml', 'custom.yaml'], updatedTemeScss => console.log(updatedTemeScss));
+```
+
 ## API (Types)
 
 ```jsx
