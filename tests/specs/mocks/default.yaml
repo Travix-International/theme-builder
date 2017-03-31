@@ -1,0 +1,7 @@
+generic:
+  color:
+    accent: &accent "#1fcff6"
+button:
+  color:
+    bg: *accent
+    width: "125px"

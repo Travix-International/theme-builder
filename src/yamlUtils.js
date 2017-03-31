@@ -17,7 +17,7 @@ function concatYamlData(files) {
 }
 
 function getASTValue(obj, curr = {}) {
-  if (obj.mappings && obj.mappings.length) {
+  if (obj.mappings) {
     obj.mappings.forEach(({ key, value }) => {
       if (!value.mappings || !value.mappings.length) {
         if (value.referencesAnchor) {
@@ -25,10 +25,10 @@ function getASTValue(obj, curr = {}) {
           return;
         }
         if (value.anchorId) {
-          curr[key.value] = `&${value.anchorId} ${value.rawValue || value.value}`;
+          curr[key.value] = `&${value.anchorId} ${value.rawValue}`;
           return;
         }
-        curr[key.value] = value.rawValue || value.value;
+        curr[key.value] = value.rawValue;
       } else {
         curr[key.value] = getASTValue(value, {});
       }
@@ -39,10 +39,6 @@ function getASTValue(obj, curr = {}) {
 }
 
 function buildYamlJson(ast) {
-  if (!ast) {
-    throw new Error('No AST found, please contact developer');
-  }
-
   if (ast.errors && ast.errors.length) {
     ast.errors.forEach(err => console.error(err.reason));
     throw new Error('There are some errors in AST, please contact developer');

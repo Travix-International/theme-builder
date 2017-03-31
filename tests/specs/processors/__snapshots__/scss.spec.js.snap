@@ -1,17 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SCSS processor should compile doc to SCSS format 1`] = `
-Array [
-  "$do-some-string: aaa;",
-  "$do-some-num: 12px;",
-  "$do-some-color: #fff;",
-]
+"$do-some-string: aaa;
+$do-some-num: 12px;
+$do-some-color: #fff;"
 `;
 
 exports[`SCSS processor should compile doc to SCSS format with prefix 1`] = `
-Array [
-  "$pre-do-some-string: aaa;",
-  "$pre-do-some-num: 12px;",
-  "$pre-do-some-color: #fff;",
-]
+"$pre-do-some-string: aaa;
+$pre-do-some-num: 12px;
+$pre-do-some-color: #fff;"
 `;

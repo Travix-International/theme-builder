@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App: build should build yaml file to scss with "tx" prefix 1`] = `
+"$tx-generic-color-accent: #1fcff6;
+$tx-button-color-bg: #1fcff6;
+$tx-button-color-width: 125px;"
+`;
+
+exports[`App: build should build yaml file to scss with default prefix 1`] = `
+"$generic-color-accent: #1fcff6;
+$button-color-bg: #1fcff6;
+$button-color-width: 125px;"
+`;
+
+exports[`App: build should merge yaml files and build correct scss 1`] = `
+"$tx-generic-color-accent: #283A8E;
+$tx-button-color-bg: #283A8E;
+$tx-button-color-width: 125px;"
+`;

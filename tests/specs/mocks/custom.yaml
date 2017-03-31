@@ -1,0 +1,3 @@
+generic:
+  color:
+    accent: &accent "#283A8E"

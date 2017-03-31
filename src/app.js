@@ -46,8 +46,11 @@ module.exports = function themeBuilder(config) {
       if (typeof callback !== 'function') {
         throw new Error('callback is required!');
       }
+      if (typeof files === 'string') {
+        files = [files];
+      }
 
-      return files.map((yamlFile) => {
+      files.map((yamlFile) => {
         return fs.watchFile(yamlFile, (curr, prev) => {
           console.log(`[theme-builder] Detected changes on ${yamlFile}`); // eslint-disable-line
           console.log(`[theme-builder] rebuilding start`); // eslint-disable-line
