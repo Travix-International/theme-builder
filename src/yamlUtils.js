@@ -1,6 +1,7 @@
 /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
 const lodashMerge = require('lodash.merge');
 const yamlParser = require('yaml-ast-parser');
+const util = require('util');
 const fs = require('fs');
 
 function compileJsonToYaml(yamlJson) {
@@ -40,7 +41,7 @@ function getASTValue(obj, curr = {}) {
 
 function buildYamlJson(ast) {
   if (ast.errors && ast.errors.length) {
-    ast.errors.forEach(err => console.error(err.reason));
+    ast.errors.forEach(err => console.error(util.inspect(err.reason, undefined, undefined, true)));
     throw new Error('There are some errors in AST, please contact developer');
   }
 
