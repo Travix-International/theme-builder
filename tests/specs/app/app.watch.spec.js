@@ -1,7 +1,6 @@
-import themeBuilder from '../../../src/app.js';
-import jest from 'jest';
 import path from 'path';
 import fs from 'fs';
+import themeBuilder from '../../../src/app';
 
 describe('App: watch', () => {
   const defaultYaml = path.join(__dirname, '../mocks/default.yaml');
@@ -10,7 +9,7 @@ describe('App: watch', () => {
   it('should watch file and rebuild after change', () => {
     const watcher = () => {};
 
-    fs.watchFile = function (fileName, callback) {
+    fs.watchFile = (fileName, callback) => {
       expect(fileName).toBe(defaultYaml);
       callback();
     };
@@ -22,11 +21,11 @@ describe('App: watch', () => {
   it('should watch files and rebuild after change', () => {
     const watcher = () => {};
     const files = [defaultYaml, customYaml];
-    let i=0;
-    fs.watchFile = function (fileName, callback) {
+    let i = 0;
+    fs.watchFile = (fileName, callback) => {
       expect(fileName).toBe(files[i]);
       callback();
-      i++;
+      i += 1;
     };
     const builder = themeBuilder({ format: 'scss' });
     builder.build = () => Promise.resolve();

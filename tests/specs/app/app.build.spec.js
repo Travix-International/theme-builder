@@ -1,5 +1,5 @@
-import themeBuilder from '../../../src/app';
 import path from 'path';
+import themeBuilder from '../../../src/app';
 
 describe('App: build', () => {
   const defaultYaml = path.join(__dirname, '../mocks/default.yaml');
@@ -10,7 +10,7 @@ describe('App: build', () => {
     const builder = themeBuilder({ format: 'scss' });
 
     builder.build(defaultYaml)
-      .then(themeScss => {
+      .then((themeScss) => {
         expect(themeScss).toMatchSnapshot();
         done();
       });
@@ -20,7 +20,7 @@ describe('App: build', () => {
     const builder = themeBuilder({ format: 'scss', prefix: 'tx' });
 
     builder.build(defaultYaml)
-      .then(themeScss => {
+      .then((themeScss) => {
         expect(themeScss).toMatchSnapshot();
         done();
       });
@@ -33,7 +33,7 @@ describe('App: build', () => {
       defaultYaml,
       customYaml
     ])
-      .then(themeScss => {
+      .then((themeScss) => {
         expect(themeScss).toMatchSnapshot();
         done();
       });
