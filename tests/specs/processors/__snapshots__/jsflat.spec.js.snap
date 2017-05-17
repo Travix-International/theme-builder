@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JS Flat object processor should compile doc to JS Flat object format 1`] = `
+Object {
+  "do-some-color": "#fff",
+  "do-some-num": "12px",
+  "do-some-string": "aaa",
+}
+`;
+
+exports[`JS Flat object processor should compile doc to JS Flat object format with prefix 1`] = `
+Object {
+  "pre-do-some-color": "#fff",
+  "pre-do-some-num": "12px",
+  "pre-do-some-string": "aaa",
+}
+`;

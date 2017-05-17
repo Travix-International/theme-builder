@@ -1,12 +1,18 @@
-const jsYaml = require('js-yaml');
-const yamlUtils = require('./yamlUtils');
-const js = require('./processors/js');
-const scss = require('./processors/scss');
 const fs = require('fs');
+const jsYaml = require('js-yaml');
+
+const yamlUtils = require('./yamlUtils');
+
+const cssvars = require('./processors/cssvars');
+const js = require('./processors/js');
+const jsflat = require('./processors/jsflat');
+const scss = require('./processors/scss');
 
 const defaultConfig = {
   processors: {
+    cssvars,
     js,
+    jsflat,
     scss
   },
   prefix: '',

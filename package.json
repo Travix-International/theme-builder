@@ -7,8 +7,11 @@
     "build": "babel --copy-files ./src --out-dir lib",
     "coverage:coveralls": "cat ./coverage/lcov.info | $(npm bin)/../coveralls/bin/coveralls.js",
     "lint": "eslint --color '{src,tests}/**/*.js'",
-    "test": "jest",
+    "precommit": "npm run lint",
+    "prepush": "npm run test",
     "test:update": "jest -u",
+    "test": "jest",
+    "version": "npm run build",
     "transpile": "npm run build"
   },
   "repository": {
@@ -62,6 +65,7 @@
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-react": "^6.7.0",
+    "husky": "^0.13.3",
     "jest": "^19.0.1",
     "webpack": "^1.13.3"
   },

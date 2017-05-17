@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CSS Variables processor should compile doc to CSS Variables format 1`] = `
+":root {
+	--do-some-string: aaa;
+	--do-some-num: 12px;
+	--do-some-color: #fff;
+}"
+`;
+
+exports[`CSS Variables processor should compile doc to CSS Variables format with prefix 1`] = `
+":root {
+	--pre-do-some-string: aaa;
+	--pre-do-some-num: 12px;
+	--pre-do-some-color: #fff;
+}"
+`;
