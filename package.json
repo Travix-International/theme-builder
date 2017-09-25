@@ -72,6 +72,6 @@
   "dependencies": {
     "js-yaml": "^3.7.0",
     "lodash.merge": "^4.6.0",
-    "yaml-ast-parser": "0.0.31"
+    "yaml-ast-parser": "0.0.35"
   }
 }
