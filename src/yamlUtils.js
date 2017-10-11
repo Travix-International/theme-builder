@@ -9,12 +9,7 @@ function compileJsonToYaml(yamlJson) {
 }
 
 function concatYamlData(files) {
-  return files.reduce((result, file) => {
-    const fileUpd = file.split('\n').map(line => `  ${line}`);
-    fileUpd.unshift('-');
-    result += `${fileUpd.join('\n')}\n`;
-    return result;
-  }, '');
+  return files.map(file => `- ${file.split('\n').join('\n  ')}`).join('\n');
 }
 
 function getASTValue(obj, curr = {}) {

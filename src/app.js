@@ -2,19 +2,12 @@ const fs = require('fs');
 const jsYaml = require('js-yaml');
 
 const yamlUtils = require('./yamlUtils');
+const defaultProcessors = require('./processors');
 
-const cssvars = require('./processors/cssvars');
-const js = require('./processors/js');
-const jsflat = require('./processors/jsflat');
-const scss = require('./processors/scss');
+const toArray = strOrArray => [].concat(strOrArray).filter(Boolean);
 
 const defaultConfig = {
-  processors: {
-    cssvars,
-    js,
-    jsflat,
-    scss
-  },
+  processors: defaultProcessors,
   prefix: '',
   format: 'scss'
 };
@@ -38,33 +31,23 @@ module.exports = function themeBuilder(config) {
         .then(yamlUtils.compileJsonToYaml);
     },
     build(yamlFiles) {
-      let promise;
-      if (typeof yamlFiles === 'string') {
-        promise = this.merge([yamlFiles]);
-      } else {
-        promise = this.merge(yamlFiles);
-      }
-
-      return promise
-        .then(themeYaml => processor.compile(jsYaml.safeLoad(themeYaml), prefix));
+      return this.merge(toArray(yamlFiles)).then(themeYaml =>
+        processor.compile(jsYaml.safeLoad(themeYaml), prefix)
+      );
     },
     watch(files, callback) {
       if (typeof callback !== 'function') {
         throw new Error('callback is required!');
       }
-      if (typeof files === 'string') {
-        files = [files];
-      }
 
-      files.map((yamlFile) => {
-        return fs.watchFile(yamlFile, (curr, prev) => {
+      toArray(files).forEach((yamlFile) => {
+        fs.watchFile(yamlFile, (curr, prev) => {
           console.log(`[theme-builder] Detected changes on ${yamlFile}`); // eslint-disable-line
           console.log(`[theme-builder] rebuilding start`); // eslint-disable-line
-          this.build(files)
-            .then((content) => {
-              console.log(`[theme-builder] rebuilding end`); // eslint-disable-line
-              callback(content, curr, prev);
-            });
+          this.build(files).then((content) => {
+            console.log(`[theme-builder] rebuilding end`); // eslint-disable-line
+            callback(content, curr, prev);
+          });
         });
       });
     }
