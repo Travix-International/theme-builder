@@ -7,7 +7,9 @@ describe('JS process', () => {
         some: {
           string: 'aaa',
           num: '12px',
-          color: '#fff'
+          color: '#fff',
+          // eslint-disable-next-line no-template-curly-in-string
+          template: '${color}${string}'
         }
       }
     };
