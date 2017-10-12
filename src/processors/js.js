@@ -27,7 +27,7 @@ function applyTransforms(value, obj) {
  * @param {Object} the parent object
  */
 function parseExpressions(obj, proto) {
-  const parsedObj = Object.create(proto);
+  const parsedObj = Object.assign(Object.create(proto), obj);
   Object.keys(obj).forEach((key) => {
     const value = obj[key];
     const fn = isObject(value) ? parseExpressions : applyTransforms;
