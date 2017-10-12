@@ -1,4 +1,5 @@
 const template = require('lodash.template');
+const helpers = require('../helpers');
 
 /**
  * Simple check if passed argument is object or array
@@ -25,7 +26,7 @@ function applyTransforms(value, obj) {
  * @param {Object} obj
  * @param {Object} the parent object
  */
-function parseExpressions(obj, proto = null) {
+function parseExpressions(obj, proto) {
   const parsedObj = Object.create(proto || obj);
   Object.keys(obj).forEach((key) => {
     const value = obj[key];
@@ -38,7 +39,7 @@ function parseExpressions(obj, proto = null) {
 
 const JsProcessor = {
   compile(obj) {
-    return parseExpressions(obj);
+    return parseExpressions(obj, helpers);
   }
 };
 
