@@ -3,17 +3,20 @@
 exports[`App: build should build yaml file to scss with "tx" prefix 1`] = `
 "$tx-generic-color-accent: #1fcff6;
 $tx-button-color-bg: #1fcff6;
-$tx-button-color-width: 125px;"
+$tx-button-color-width: 125px;
+$tx-button-border-style: rgba(31, 207, 246, 0.5);"
 `;
 
 exports[`App: build should build yaml file to scss with default prefix 1`] = `
 "$generic-color-accent: #1fcff6;
 $button-color-bg: #1fcff6;
-$button-color-width: 125px;"
+$button-color-width: 125px;
+$button-border-style: rgba(31, 207, 246, 0.5);"
 `;
 
 exports[`App: build should merge yaml files and build correct scss 1`] = `
 "$tx-generic-color-accent: #283A8E;
 $tx-button-color-bg: #283A8E;
-$tx-button-color-width: 125px;"
+$tx-button-color-width: 125px;
+$tx-button-border-style: rgba(40, 58, 142, 0.5);"
 `;

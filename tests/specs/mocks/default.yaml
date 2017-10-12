@@ -5,3 +5,5 @@ button:
   color:
     bg: *accent
     width: "125px"
+  border:
+    style: ${rgba(generic.color.accent, 0.5)}
