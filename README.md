@@ -111,9 +111,6 @@ type Config = {
   // Processors for additional formats
   processors?: {[name: string]: Processor},
 
-  // Default theme YAML filepath, will be used as base to extend main YAML
-  defaultThemeYaml?: string,
-
   // Output unit prefixes, eg. SCSS variables names prefixes
   prefix?: string,
 }

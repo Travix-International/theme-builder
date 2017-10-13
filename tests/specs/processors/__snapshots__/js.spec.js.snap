@@ -2,12 +2,15 @@
 
 exports[`JS process should process object 1`] = `
 Object {
+  "another": Object {
+    "something": "bbb",
+  },
   "do": Object {
     "some": Object {
       "color": "#fff",
       "num": "12px",
       "string": "aaa",
-      "template": "#fffaaa",
+      "template": "#fffaaabbb",
     },
   },
 }
