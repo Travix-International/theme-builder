@@ -62,7 +62,7 @@
     "coveralls": "^2.11.12",
     "eslint": "^3.11.0",
     "eslint-config-travix": "^2.2.0",
-    "eslint-plugin-babel": "^4.0.0",
+    "eslint-plugin-babel": "^5.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-react": "^6.7.0",
     "husky": "^0.13.3",
